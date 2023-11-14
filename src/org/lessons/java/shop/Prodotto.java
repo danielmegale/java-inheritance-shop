@@ -10,13 +10,15 @@ public class Prodotto {
 	private String descrizione;
 	private double prezzo;
 	private int	iva;
+	private String product;
 	
-	public Prodotto (String nome,String descrizione,double prezzo,int iva) {
+	public Prodotto (String nome,String descrizione,double prezzo,int iva,String product) {
 		setCodice();
 		setNome(nome);
 		setDescrizione(descrizione);
 		setPrezzo(prezzo);
 		setIva(iva);
+		setProduct(product);
 	}
 	
 	public int getCodice() {
@@ -72,6 +74,26 @@ public class Prodotto {
 			}
 		}
 		return zeros+codice;
-		
+	}
+	public String getProduct() {
+		return product;
+	}
+
+	public void setProduct(String product) {
+		this.product = product;
+	}
+	
+	@Override
+	public String toString() {
+		return  product + " " +"\n"
+				+"Codice:" + " " + codice + "\n"
+				+"Nome:" + " " + nome + "\n"
+				+"Code Name:" + " " + getCodeName() + "\n"
+				+"Descrizione:" +" "+descrizione + "\n"
+				+"Prezzo Netto:" + " " + prezzo + "€" + "\n"
+				+"Prezzo Lordo:" + " " + getPrezzoCompleto()+"€"+"\n"
+				+"IVA:" + " " + iva + "%" +"\n"
+				;
 	}
 }
+	
