@@ -11,16 +11,19 @@ public class Prodotto {
 	private double prezzo;
 	private int	iva;
 	private String product;
+	private boolean fedelty;
 	
-	public Prodotto (String nome,String descrizione,double prezzo,int iva,String product) {
+	
+	public Prodotto (String nome,String descrizione,double prezzo,int iva,String product,boolean fedelty) {
 		setCodice();
 		setNome(nome);
 		setDescrizione(descrizione);
 		setPrezzo(prezzo);
 		setIva(iva);
 		setProduct(product);
+		setFedelty(fedelty);
 	}
-	
+
 	public int getCodice() {
 		return codice;
 	}
@@ -55,10 +58,10 @@ public class Prodotto {
 		
 		this.iva = iva;
 	}
-	public String getPrezzoCompleto() {
+	public double getPrezzoCompleto() {
 		double prezzoIva = (prezzo*iva)/100;
 		double prezzoCompleto =prezzoIva+prezzo;
-		return String.format("%.02f",prezzoCompleto);
+		return prezzoCompleto;
 	}
 	public String getCodeName() {
 	String fullName= codice+"-"+nome;
@@ -82,7 +85,22 @@ public class Prodotto {
 	public void setProduct(String product) {
 		this.product = product;
 	}
+	public boolean isFedelty() {
+		return fedelty;
+	}
+
+	public void setFedelty(boolean fedelty) {
+		this.fedelty = fedelty;
+	}
 	
+	public double getSconto(){
+		double sconto = 0;
+		if(fedelty) {
+			sconto=0.02;
+		}
+		return sconto;
+	}
+
 	@Override
 	public String toString() {
 		return  product + " " +"\n"

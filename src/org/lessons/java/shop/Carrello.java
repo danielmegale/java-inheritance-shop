@@ -9,9 +9,21 @@ public class Carrello {
 		Scanner in= new Scanner(System.in);
 		ArrayList<Prodotto> carrello = new ArrayList<>();
 		
+		
+		System.out.println("Hai la carta feldetà? digitare SI o NO");
+		boolean fedelty;
+		String fedeltyInput = in.nextLine();
+		
+		if (fedeltyInput.equalsIgnoreCase("SI")) {
+			fedelty = true;
+		} else if (fedeltyInput.equalsIgnoreCase("NO")) {
+			fedelty = false;
+		} else {
+			fedelty = false;
+		}
 		while(true) {
-		System.out.println("Se si vuole aggiungere un prodotto digitare SI altrimenti NO");
-		String input = in.nextLine();
+			System.out.println("Se si vuole aggiungere un prodotto digitare SI altrimenti NO");
+			String input = in.nextLine();
 			if(input.equals("si")) {
 				System.out.println("Digita il numero corrispondente al prodotto che vuoi inerire: \n"
 						+ "1: Smartphone \n"
@@ -40,7 +52,7 @@ public class Carrello {
 
 					int memory=in.nextInt();
 					in.nextLine();
-					Smartphone p1= new Smartphone(nome,descrizione,prezzo,iva,prod,codeImei,memory);
+					Smartphone p1= new Smartphone(nome,descrizione,prezzo,iva,prod,fedelty,codeImei,memory);
 					System.out.println("--------------------------");
 					System.out.println(p1);
 					carrello.add(p1);
@@ -62,7 +74,7 @@ public class Carrello {
 						smart = false;
 					}
 					
-					Televisori p1= new Televisori (nome,descrizione,prezzo,iva,prod,dimensioni,smart);
+					Televisori p1= new Televisori (nome,descrizione,prezzo,iva,prod,fedelty,dimensioni,smart);
 					System.out.println("--------------------------");
 					System.out.println(p1);
 					carrello.add(p1);
@@ -78,20 +90,21 @@ public class Carrello {
 					
 					if (wirelessInput.equalsIgnoreCase("SI")) {
 					    wireless = true;
-					} else if (wirelessInput.equalsIgnoreCase("NO")) {
+					} 
+					else if (wirelessInput.equalsIgnoreCase("NO")) {
 					    wireless = false;
-					} else {
+					} 
+					else {
 					    wireless = false;
 					}
-				
-					Cuffie p1= new Cuffie (nome,descrizione,prezzo,iva,prod,color,wireless);
-					
+					Cuffie p1= new Cuffie (nome,descrizione,prezzo,iva,prod,fedelty,color,wireless);
 					System.out.println("--------------------------");
 					System.out.println(p1);
 					carrello.add(p1);
 				}
 				
-			}else {	
+			}
+			else {	
 				System.out.println("Operazione annullata");
 				System.out.println("--------------------------");
 				System.out.println("Carrello:" + "\n"
@@ -100,7 +113,7 @@ public class Carrello {
 					System.out.println(prodotto);
 				}
 				break;
-				}
+			}
+		}
 	}
-}
 }
