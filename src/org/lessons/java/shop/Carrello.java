@@ -113,7 +113,9 @@ public class Carrello {
 					System.out.println(prodotto);
 				}
 				break;
+				
 			}
 		}
+		in.close();
 	}
 }

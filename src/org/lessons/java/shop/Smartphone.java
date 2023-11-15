@@ -1,5 +1,5 @@
 package org.lessons.java.shop;
-import java.util.Locale;
+
 public class Smartphone extends Prodotto {
 	
 	private String codeImei;
